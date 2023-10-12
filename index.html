@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto JavaScript</title>
+    <meta name="description" content="Bienvenido a mi proyecto de javascript de la mano de coderhouse!">
+    <meta name="keywords" content="proyecto,programar,html,css,scss,sass,javascript,pyhton,programador,seo">
+    <link rel="stylesheet" href="./scss/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="encabezado-header">
+            <h1 class="contenido-encabezado">Calculadora Compra <span>Exterior</span></h1>
+        </div>
+    </header>
+    <main>
+        <div class="contenedor-pagina-main">
+            <section class="sections section-entradaDatos">
+                <h2 class="titulo-entradaDatos">Ingrese un monto en $AR:</h2>
+                <input type="number" name="monto" id="inputMonto" value="0" required class="inputMonto">
+                <select name="Provincias" id="provinciaSeleccionada" class="selectProvincias">
+                    <option value="Buenos Aires">Buenos Aires</option>
+                    <option value="Chaco">Chaco</option>
+                    <option value="Cordoba">Cordoba</option>
+                    <option value="La Pampa">La Pampa</option>
+                    <option value="Neuquen">Neuquen</option>
+                    <option value="Rio Negro">Rio Negro</option>
+                    <option value="Salta">Salta</option>
+                    <option value="Tierra del Fuego">Tierra del Fuego</option>
+                    <option value="Ninguna de las anteriores">Ninguna de las anteriores</option>
+                </select>
+                <select name="Divisa" id="divisaSeleccionada" class="selectDivisa">
+                    <option value="AR">$AR</option>
+                    <option value="USD">$USD</option>
+                    <option value="EUR">$EUR</option>
+                </select>
+                <section class="section-botones">
+                    <button id="calcularValor" class="boton botonEnviar">Cacular Valor</button>
+                    <button id="resetearTodo" class="boton botonReset">Resetear</button>
+                </section>
+            </section>
+            <section class="sections section-resultadoCaculos">
+                <h2 id="totalMasImpuestos" class="resultado-totalMasImpuestos"></h2>
+                <h3 id="montoSinImpuestos" class="resultado-montoSinImpuestos"></h3>
+                <h3 id="montoSoloImpuestos" class="resultado-montoSoloImpuestos"></h3>
+                <ul class="listaImpuestos">
+                    <li id="montoIVA" class="impuesto resultado-montoIVA"></li>
+                    <li id="montoPercepcion" class="impuesto resultado-montoPercepcion"></li>
+                    <li id="montoImpuestoPais" class="impuesto resultado-montoImpuestoPais"></li>
+                    <li id="montoProvinciales" class="impuesto resultado-montoProvincial"></li>
+                </ul>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-div">
+            <p class="footer-div-p">Aplicacion web con fines estudiantiles, los datos pueden no estar actualizados.</p>
+        </div>
+    </footer>
+</body>
+
+<script src="./javascript/main.js"></script>
+
+</html>

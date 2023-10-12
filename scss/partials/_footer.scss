@@ -1,0 +1,18 @@
+footer {
+    height: 130px;
+    width: 100vw;
+    background-color: $color-principal;
+    border-top: 3px solid $color-secundario;
+    display: flex;
+    align-items: center;
+
+    .footer-div {
+        max-width: 80%;
+        text-align: center;
+        margin: auto;
+
+        .footer-div-p {
+            font-size: 1rem;
+        }
+    }
+}

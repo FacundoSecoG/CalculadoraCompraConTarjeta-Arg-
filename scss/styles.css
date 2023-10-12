@@ -1,0 +1,148 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+html {
+  background-color: #25282E;
+  scroll-behavior: smooth;
+  margin: auto;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+span {
+  color: #00FFFF;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  min-height: 100vh;
+}
+
+::-moz-selection {
+  background: #3c414b;
+}
+
+::selection {
+  background: #3c414b;
+}
+
+::-moz-selection {
+  background: #3c414b;
+}
+
+header {
+  height: 100px;
+  width: 100vw;
+  background-color: #444F68;
+  border-bottom: 3px solid #00FFFF;
+  display: flex;
+  align-items: center;
+}
+header .encabezado-header {
+  max-width: 80%;
+  text-align: center;
+  margin: auto;
+}
+header .encabezado-header .contenido-encabezado {
+  font-size: 2rem;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+main .contenedor-pagina-main {
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 3rem;
+  max-width: 1200px;
+}
+main .contenedor-pagina-main .sections {
+  width: 100%;
+  background-color: #444F68;
+  box-shadow: 0 0 15px #444F68;
+  border-radius: 30px;
+  padding: 1.5rem;
+  margin: auto;
+}
+main .contenedor-pagina-main .sections h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+main .contenedor-pagina-main .sections input,
+main .contenedor-pagina-main .sections select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+main .contenedor-pagina-main .sections .section-botones {
+  display: flex;
+  justify-content: space-between;
+}
+main .contenedor-pagina-main .sections .section-botones .boton {
+  background-color: #25282E;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: 2px solid #444F68;
+}
+main .contenedor-pagina-main .sections .section-botones .boton:hover {
+  background-color: #444F68;
+  border: 2px solid #00FFFF;
+}
+main .contenedor-pagina-main .sections .resultado-totalMasImpuestos {
+  font-size: 1.5rem;
+}
+main .contenedor-pagina-main .sections .listaImpuestos {
+  list-style-type: none;
+  padding: 0;
+}
+main .contenedor-pagina-main .sections .listaImpuestos .impuesto {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin: 0.5rem 0;
+  padding: 1rem;
+}
+
+footer {
+  height: 130px;
+  width: 100vw;
+  background-color: #444F68;
+  border-top: 3px solid #00FFFF;
+  display: flex;
+  align-items: center;
+}
+footer .footer-div {
+  max-width: 80%;
+  text-align: center;
+  margin: auto;
+}
+footer .footer-div .footer-div-p {
+  font-size: 1rem;
+}/*# sourceMappingURL=styles.css.map */

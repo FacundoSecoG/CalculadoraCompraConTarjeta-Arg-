@@ -1,0 +1,44 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+html {
+    background-color: $color-fondo;
+    scroll-behavior: smooth;
+    margin: auto;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+span {
+    color: $color-secundario;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+    min-height: 100vh;
+}
+
+::selection {
+    background: #3c414b;
+}
+
+::-moz-selection {
+    background: #3c414b;
+}

@@ -1,0 +1,18 @@
+header {
+    height: 100px;
+    width: 100vw;
+    background-color: $color-principal;
+    border-bottom: 3px solid $color-secundario;
+    display: flex;
+    align-items: center;
+
+    .encabezado-header {
+        max-width: 80%;
+        text-align: center;
+        margin: auto;
+
+        .contenido-encabezado {
+            font-size: 2rem;
+        }
+    }
+}
