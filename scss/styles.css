@@ -72,19 +72,19 @@ main {
   min-width: 100vw;
 }
 main .contenedor-pagina-main {
-  width: 80%;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 3rem;
   max-width: 1200px;
 }
 main .contenedor-pagina-main .sections {
-  width: 100%;
+  width: 80%;
   background-color: #444F68;
   box-shadow: 0 0 15px #444F68;
   border-radius: 30px;
   padding: 1.5rem;
-  margin: auto;
+  margin: 0 auto;
 }
 main .contenedor-pagina-main .sections h2 {
   font-size: 1.5rem;

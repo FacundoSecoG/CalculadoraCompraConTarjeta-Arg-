@@ -4,20 +4,19 @@ main {
     align-items: center;
     min-height: 100vh;
     min-width: 100vw;
-
     .contenedor-pagina-main {
-        width: 80%;
+        width: 100%;
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
         gap: 3rem;
         max-width: 1200px;
         .sections {
-            width: 100%;
+            width: 80%;
             background-color: $color-principal;
             box-shadow: 0 0 15px $color-principal;
             border-radius: 30px;
             padding: 1.5rem;
-            margin: auto;
+            margin: 0 auto;
             h2 {
                 font-size: 1.5rem;
                 margin-bottom: 1rem;

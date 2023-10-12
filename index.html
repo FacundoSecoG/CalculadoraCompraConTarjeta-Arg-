@@ -20,30 +20,32 @@
     </header>
     <main>
         <div class="contenedor-pagina-main">
-            <section class="sections section-entradaDatos">
-                <h2 class="titulo-entradaDatos">Ingrese un monto en $AR:</h2>
-                <input type="number" name="monto" id="inputMonto" value="0" required class="inputMonto">
-                <select name="Provincias" id="provinciaSeleccionada" class="selectProvincias">
-                    <option value="Buenos Aires">Buenos Aires</option>
-                    <option value="Chaco">Chaco</option>
-                    <option value="Cordoba">Cordoba</option>
-                    <option value="La Pampa">La Pampa</option>
-                    <option value="Neuquen">Neuquen</option>
-                    <option value="Rio Negro">Rio Negro</option>
-                    <option value="Salta">Salta</option>
-                    <option value="Tierra del Fuego">Tierra del Fuego</option>
-                    <option value="Ninguna de las anteriores">Ninguna de las anteriores</option>
-                </select>
-                <select name="Divisa" id="divisaSeleccionada" class="selectDivisa">
-                    <option value="AR">$AR</option>
-                    <option value="USD">$USD</option>
-                    <option value="EUR">$EUR</option>
-                </select>
-                <section class="section-botones">
-                    <button id="calcularValor" class="boton botonEnviar">Cacular Valor</button>
-                    <button id="resetearTodo" class="boton botonReset">Resetear</button>
+            <div class="form-monto">
+                <section class="sections section-entradaDatos">
+                    <h2 class="titulo-entradaDatos">Ingrese un monto en $AR:</h2>
+                    <input type="number" name="monto" id="inputMonto" value="0" required class="inputMonto">
+                    <select name="Provincias" id="provinciaSeleccionada" class="selectProvincias">
+                        <option value="Buenos Aires">Buenos Aires</option>
+                        <option value="Chaco">Chaco</option>
+                        <option value="Cordoba">Cordoba</option>
+                        <option value="La Pampa">La Pampa</option>
+                        <option value="Neuquen">Neuquen</option>
+                        <option value="Rio Negro">Rio Negro</option>
+                        <option value="Salta">Salta</option>
+                        <option value="Tierra del Fuego">Tierra del Fuego</option>
+                        <option value="Ninguna de las anteriores">Ninguna de las anteriores</option>
+                    </select>
+                    <select name="Divisa" id="divisaSeleccionada" class="selectDivisa">
+                        <option value="AR">$AR</option>
+                        <option value="USD">$USD</option>
+                        <option value="EUR">$EUR</option>
+                    </select>
+                    <section class="section-botones">
+                        <button id="calcularValor" class="boton botonEnviar">Cacular Valor</button>
+                        <button id="resetearTodo" class="boton botonReset">Resetear</button>
+                    </section>
                 </section>
-            </section>
+            </div>
             <section class="sections section-resultadoCaculos">
                 <h2 id="totalMasImpuestos" class="resultado-totalMasImpuestos"></h2>
                 <h3 id="montoSinImpuestos" class="resultado-montoSinImpuestos"></h3>
