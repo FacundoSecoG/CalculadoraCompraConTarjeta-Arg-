@@ -73,10 +73,7 @@ main {
 }
 main .contenedor-pagina-main {
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  gap: 3rem;
-  max-width: 1200px;
+  max-width: 700px;
 }
 main .contenedor-pagina-main .sections {
   width: 80%;
@@ -85,6 +82,7 @@ main .contenedor-pagina-main .sections {
   border-radius: 30px;
   padding: 1.5rem;
   margin: 0 auto;
+  margin-bottom: 3rem;
 }
 main .contenedor-pagina-main .sections h2 {
   font-size: 1.5rem;
