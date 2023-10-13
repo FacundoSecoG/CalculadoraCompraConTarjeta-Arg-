@@ -125,7 +125,7 @@ function actualizarTablaTotal(monto, provincia) {
     }
 
     montoSinImpuestosHTML.innerHTML = `Monto de la compra: AR$${monto.toFixed(2)}`;
-    montoSoloImpuestosHTML.innerHTML = `Monto de impuestos: AR$${totalImpuestos}`;
+    montoSoloImpuestosHTML.innerHTML = `Monto de impuestos: AR$${totalImpuestos.toFixed(2)}`;
     
     if (provincia.nombreProvinciaEnString === "Tierra del Fuego") {
         montoIvaHTML.innerHTML = `IVA Servicios Digitales: AR$${(calcularIva(monto, provincia)).toFixed(2)} (0%)`;
