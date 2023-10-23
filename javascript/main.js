@@ -11,64 +11,43 @@ a tener en cuenta:
     + Impuestos provinciales (varían según la provincia)
 */
 
-let provincias = [
-    {
-        impuestosProvinciales: 0.02,
-        nombreProvinciaEnString: "Buenos Aires"
-    },
-    {
-        impuestosProvinciales: 0.055,
-        nombreProvinciaEnString: "Chaco"
-    },
-    {
-        impuestosProvinciales: 0.03,
-        nombreProvinciaEnString: "Cordoba"
-    },
-    {
-        impuestosProvinciales: 0.01,
-        nombreProvinciaEnString: "La Pampa"
-    },
-    {
-        impuestosProvinciales: 0.03,
-        nombreProvinciaEnString: "Neuquen"
-    },
-    {
-        impuestosProvinciales: 0.05,
-        nombreProvinciaEnString: "Rio Negro"
-    },
-    {
-        impuestosProvinciales: 0.036,
-        nombreProvinciaEnString: "Salta"
-    },
-    {
-        impuestosProvinciales: 0,
-        nombreProvinciaEnString: "Tierra del Fuego"
-    },
-    {
-        impuestosProvinciales: 0,
-        nombreProvinciaEnString: "Ninguna de las anteriores"
+class Provincia {
+    constructor(nombreProvinciaEnString, impuestosProvinciales) {
+        this.nombreProvinciaEnString = nombreProvinciaEnString;
+        this.impuestosProvinciales = impuestosProvinciales;
     }
+}
+
+class Divisa {
+    constructor(tipoDivisa, multiplicador) {
+        this.tipoDivisa = tipoDivisa;
+        this.multiplicador = multiplicador;
+    }
+}
+
+const provincias = [
+    new Provincia("Buenos Aires", 0.02),
+    new Provincia("Chaco", 0.055),
+    new Provincia("Cordoba", 0.03),
+    new Provincia("La Pampa", 0.01),
+    new Provincia("Neuquen", 0.03),
+    new Provincia("Rio Negro", 0.05),
+    new Provincia("Salta", 0.036),
+    new Provincia("Tierra del Fuego", 0),
+    new Provincia("Ninguna de las anteriores", 0)
 ];
 
-let divisas = [
-    {
-        tipoDivisa: "AR",
-        multiplicador: 1
-    },
-    {
-        tipoDivisa: "USD",
-        multiplicador: 367
-    },
-    {
-        tipoDivisa: "EUR",
-        multiplicador: 349
-    }
+const divisas = [
+    new Divisa("AR", 1),
+    new Divisa("USD", 367),
+    new Divisa("EUR", 349)
 ];
 
 let provinciaSelect = document.getElementById("provinciaSeleccionada");
 let inputMonto = document.getElementById("inputMonto");
 let divisaSelect = document.getElementById("divisaSeleccionada");
 let resetearTodoBoton = document.getElementById("resetearTodo");
+const guardarConfiguracionBoton = document.getElementById("guardarConfiguracion");
 
 let provinciaSeleccionada = provinciaSelect.value;
 let montoSinImpuestos = inputMonto.value;
@@ -95,6 +74,28 @@ divisaSelect.addEventListener("change", function () {
     actualizarTablaTotal(montoSinImpuestos, provinciaObjecto);
 });
 
+guardarConfiguracionBoton.addEventListener("click", function () {
+    configuracionUsuario.provincia = provinciaSeleccionada;
+    configuracionUsuario.divisa = divisaSeleccionada;
+    const configuracionJSON = JSON.stringify(configuracionUsuario);
+    localStorage.setItem('configuracionUsuario', configuracionJSON);
+
+    alert("Configuración guardada correctamente.");
+});
+
+window.addEventListener('load', function () {
+    const configuracionGuardada = localStorage.getItem('configuracionUsuario');
+    if (configuracionGuardada) {
+        configuracionUsuario = JSON.parse(configuracionGuardada);
+        provinciaSeleccionada = configuracionUsuario.provincia;
+        divisaSeleccionada = configuracionUsuario.divisa;
+        provinciaSelect.value = provinciaSeleccionada;
+        divisaSelect.value = divisaSeleccionada;
+        actualizarTablaTotal(montoSinImpuestos, provinciaObjecto);
+    }
+});
+
+
 resetearTodoBoton.addEventListener("click", resetearTodo);
 
 function resetearTodo() {
@@ -116,13 +117,7 @@ function actualizarTablaTotal(monto, provincia) {
     let montoImpuestoPaisHTML = document.getElementById("montoImpuestoPais");
     let montoProvincialesHTML = document.getElementById("montoProvinciales");
 
-    if (divisaSeleccionada === "USD") {
-        totalMasImpuestoHTML.innerHTML = `Total + impuestos: USD$${(monto + totalImpuestos).toFixed(2)}`;
-    } else if (divisaSeleccionada === "AR") {
-        totalMasImpuestoHTML.innerHTML = `Total + impuestos: AR$${(monto + totalImpuestos).toFixed(2)}`;
-    } else {
-        totalMasImpuestoHTML.innerHTML = `Total + impuestos: EUR$${(monto + totalImpuestos).toFixed(2)}`;
-    }
+    totalMasImpuestoHTML.innerHTML = `Total + impuestos: AR$${(monto + totalImpuestos).toFixed(2)}`;
 
     montoSinImpuestosHTML.innerHTML = `Monto de la compra: AR$${monto.toFixed(2)}`;
     montoSoloImpuestosHTML.innerHTML = `Monto de impuestos: AR$${totalImpuestos.toFixed(2)}`;
@@ -151,5 +146,7 @@ const calcularPercepcion = monto => monto * 0.45;
 const calcularImpuestoPais = monto => monto * 0.08;
 
 const calcularImpuestoProvincial = (monto, provincia) => monto * provincia.impuestosProvinciales;
+
+
 
 actualizarTablaTotal(montoSinImpuestos, provinciaObjecto);
