@@ -43,11 +43,16 @@ const divisas = [
     new Divisa("EUR", 349)
 ];
 
+let configuracionUsuario = {
+    provincia: '',
+    divisa: ''
+};
+
 let provinciaSelect = document.getElementById("provinciaSeleccionada");
 let inputMonto = document.getElementById("inputMonto");
 let divisaSelect = document.getElementById("divisaSeleccionada");
 let resetearTodoBoton = document.getElementById("resetearTodo");
-const guardarConfiguracionBoton = document.getElementById("guardarConfiguracion");
+let guardarConfiguracionBoton = document.getElementById("guardarConfiguracion");
 
 let provinciaSeleccionada = provinciaSelect.value;
 let montoSinImpuestos = inputMonto.value;
