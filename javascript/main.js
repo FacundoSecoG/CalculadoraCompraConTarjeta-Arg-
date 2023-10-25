@@ -111,14 +111,15 @@ function resetearTodo() {
 
 function actualizarTablaTotal(monto, provincia) {
     monto = parseFloat(monto);
-    let totalImpuestos = calcularIva(monto, provincia) + calcularPercepcion(monto) + calcularImpuestoPais(monto) + calcularImpuestoProvincial(monto, provincia);
+    let totalImpuestos = calcularIva(monto, provincia) + calcularPercepcion4815(monto) + calcularImpuestoPais(monto) + calcularImpuestoProvincial(monto, provincia) + calcularPercepcion5272(monto);
     totalImpuestos = parseFloat(totalImpuestos);
 
     let totalMasImpuestoHTML = document.getElementById("totalMasImpuestos");
     let montoSinImpuestosHTML = document.getElementById("montoSinImpuestos");
     let montoSoloImpuestosHTML = document.getElementById("montoSoloImpuestos");
     let montoIvaHTML = document.getElementById("montoIVA");
-    let montoPercepcionHTML = document.getElementById("montoPercepcion");
+    let montoPercepcion4815HTML = document.getElementById("montoPercepcion4815");
+    let montoPercepcion5272HTML = document.getElementById("montoPercepcion5272")
     let montoImpuestoPaisHTML = document.getElementById("montoImpuestoPais");
     let montoProvincialesHTML = document.getElementById("montoProvinciales");
 
@@ -133,7 +134,8 @@ function actualizarTablaTotal(monto, provincia) {
         montoIvaHTML.innerHTML = `IVA Servicios Digitales: AR$${(calcularIva(monto, provincia)).toFixed(2)} (21%)`;
     }
     
-    montoPercepcionHTML.innerHTML = `Percepción RG AFIP 4815: AR$${(calcularPercepcion(monto)).toFixed(2)} (45%)`;
+    montoPercepcion4815HTML.innerHTML = `Percepción RG AFIP 4815: AR$${(calcularPercepcion4815(monto)).toFixed(2)} (45%)`;
+    montoPercepcion5272HTML.innerHTML = `Percepcion RG AFIP 5272: AR$${(calcularPercepcion5272(monto).toFixed(2))} (25%)`;
     montoImpuestoPaisHTML.innerHTML = `Ley impuesto PAIS: AR$${(calcularImpuestoPais(monto)).toFixed(2)} (8%)`;
     montoProvincialesHTML.innerHTML = `Impuestos provinciales para ${provincia.nombreProvinciaEnString}: AR$${(calcularImpuestoProvincial(monto, provincia)).toFixed(2)} (${(provincia.impuestosProvinciales * 100).toFixed(2)}%)`;
 }
@@ -146,7 +148,9 @@ const calcularIva = function (monto, provincia) {
     }
 };
 
-const calcularPercepcion = monto => monto * 0.45;
+const calcularPercepcion4815 = monto => monto * 0.45;
+
+const calcularPercepcion5272  = monto => monto * 0.25;
 
 const calcularImpuestoPais = monto => monto * 0.08;
 
