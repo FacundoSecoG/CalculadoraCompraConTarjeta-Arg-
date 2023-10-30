@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto JavaScript</title>
-    <meta name="description" content="Bienvenido a mi proyecto de javascript de la mano de coderhouse!">
-    <meta name="keywords" content="proyecto,programar,html,css,scss,sass,javascript,pyhton,programador,seo">
+    <title>Calcula pagos al exterior YA!</title>
+    <meta name="description" content="Calcula de forma online la tasa de impuestos nacioneles y provinciales de tus compras!">
+    <meta name="keywords" content="WebApp, javascript, seo, html5, css3, css, html, compra exterior, pago tarjeta, impuestos, afip">
+    <link rel="shortcut icon" href="./imgs/iconPagina.webp">
     <link rel="stylesheet" href="./scss/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -20,8 +21,7 @@
         </div>
     </header>
     <main>
-        <div class="contenedor-pagina-main">
-            <div class="form-monto">
+        <section class="contenedor-pagina-main">
                 <section class="sections section-entradaDatos">
                     <h2 class="titulo-entradaDatos">Ingrese un monto en AR$:</h2>
                     <input type="number" name="monto" id="inputMonto" value="0" required class="inputMonto">
@@ -40,6 +40,7 @@
                         <option value="AR">$AR</option>
                         <option value="USD">$USD</option>
                         <option value="EUR">$EUR</option>
+                        <option value="BR">$BR</option>
                     </select>
                     <section class="section-botones">
                         <div class="section-boton" id="botonGuardarConfiguracion">
@@ -56,7 +57,6 @@
                         </div>
                     </section>
                 </section>
-            </div>
             <section class="sections section-resultadoCaculos">
                 <h2 id="totalMasImpuestos" class="resultado-totalMasImpuestos"></h2>
                 <h3 id="montoSinImpuestos" class="resultado-montoSinImpuestos"></h3>
@@ -69,7 +69,7 @@
                     <li id="montoProvinciales" class="impuesto resultado-montoProvincial"></li>
                 </ul>
             </section>
-        </div>
+        </section>
     </main>
     <footer>
         <div class="footer-div">

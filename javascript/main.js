@@ -40,7 +40,8 @@ const provincias = [
 const divisas = [
     new Divisa("AR", 1),
     new Divisa("USD", 367),
-    new Divisa("EUR", 349)
+    new Divisa("EUR", 349),
+    new Divisa("BR", 74.9)
 ];
 
 let configuracionUsuario = {

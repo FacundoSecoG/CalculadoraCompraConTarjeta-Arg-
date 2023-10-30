@@ -89,7 +89,7 @@ body {
 }
 
 header {
-  height: 100px;
+  height: 130px;
   width: 100vw;
   background-color: #444F68;
   border-bottom: 3px solid #00FFFF;
@@ -111,13 +111,15 @@ main {
   align-items: center;
   min-height: 100vh;
   min-width: 100vw;
+  padding-top: 30px;
 }
 main .contenedor-pagina-main {
   width: 100%;
-  max-width: 700px;
+  max-width: 1430px;
 }
 main .contenedor-pagina-main .sections {
   width: 80%;
+  max-width: 700px;
   background-color: #444F68;
   box-shadow: 0 0 15px #444F68;
   border-radius: 30px;
@@ -140,11 +142,12 @@ main .contenedor-pagina-main .sections select {
 }
 main .contenedor-pagina-main .sections .section-botones {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 3px;
 }
 main .contenedor-pagina-main .sections .section-botones .section-boton {
   max-width: 150px;
+  margin: 0 auto;
 }
 main .contenedor-pagina-main .sections .section-botones .section-boton .icono {
   display: none;
@@ -152,13 +155,13 @@ main .contenedor-pagina-main .sections .section-botones .section-boton .icono {
 main .contenedor-pagina-main .sections .section-botones .section-boton .boton {
   width: 100%;
   height: 100%;
-  font-size: 1rem;
+  font-size: 0.9rem;
   background-color: #25282E;
   border: none;
   border-radius: 5px;
   color: white;
   cursor: pointer;
-  padding: 0.5rem 0.3rem;
+  padding: 0.6rem;
   border: 2px solid #444F68;
 }
 main .contenedor-pagina-main .sections .section-botones .section-boton .boton:hover {
