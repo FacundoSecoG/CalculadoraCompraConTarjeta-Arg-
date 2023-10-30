@@ -33,14 +33,17 @@ main {
             .section-botones {
                 display: flex;
                 justify-content: space-between;
-
+                width: 100%;
                 .boton {
+                    font-size: calc(0.6rem + 0.8vh);
+                    width: 34%;
+                    max-width: 150px;
                     background-color: $color-fondo;
                     border: none;
                     border-radius: 5px;
                     color: white;
                     cursor: pointer;
-                    padding: 0.5rem 1rem;
+                    padding: 0.5rem 0.3rem;
                     border: 2px solid $color-principal;
 
                     &:hover {

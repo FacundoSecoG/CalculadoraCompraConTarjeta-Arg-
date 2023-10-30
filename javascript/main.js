@@ -85,7 +85,13 @@ guardarConfiguracionBoton.addEventListener("click", function () {
     const configuracionJSON = JSON.stringify(configuracionUsuario);
     localStorage.setItem('configuracionUsuario', configuracionJSON);
 
-    alert("Configuración guardada correctamente.");
+    Swal.fire({
+        title: 'Genial!',
+        text: 'Se guardo correctamente la configuracion.',
+        icon: 'success',
+        iconColor:'#00FFFF',
+        confirmButtonText: 'BIEN',
+    })
 });
 
 window.addEventListener('load', function () {

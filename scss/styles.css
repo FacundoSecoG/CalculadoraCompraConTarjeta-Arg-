@@ -100,14 +100,18 @@ main .contenedor-pagina-main .sections select {
 main .contenedor-pagina-main .sections .section-botones {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 main .contenedor-pagina-main .sections .section-botones .boton {
+  font-size: calc(0.6rem + 0.8vh);
+  width: 34%;
+  max-width: 150px;
   background-color: #25282E;
   border: none;
   border-radius: 5px;
   color: white;
   cursor: pointer;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.3rem;
   border: 2px solid #444F68;
 }
 main .contenedor-pagina-main .sections .section-botones .boton:hover {
