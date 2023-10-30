@@ -51,8 +51,8 @@ let configuracionUsuario = {
 let provinciaSelect = document.getElementById("provinciaSeleccionada");
 let inputMonto = document.getElementById("inputMonto");
 let divisaSelect = document.getElementById("divisaSeleccionada");
-let resetearTodoBoton = document.getElementById("resetearTodo");
-let guardarConfiguracionBoton = document.getElementById("guardarConfiguracion");
+let resetearTodoBoton = document.getElementById("botonResetearTodo");
+let guardarConfiguracionBoton = document.getElementById("botonGuardarConfiguracion");
 
 let provinciaSeleccionada = provinciaSelect.value;
 let montoSinImpuestos = inputMonto.value;

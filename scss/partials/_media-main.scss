@@ -1,0 +1,45 @@
+@media screen and (max-width: 400px) {
+    .section-botones {
+        .section-boton {
+            text-align: center;
+            .icono {
+                display: block !important;
+                width: auto;
+                height: auto;
+                font-size: 35px;
+                position: relative;
+                transition: transform 0.3s;
+                &:hover {
+                    color: #00FFFF;
+                }
+                &.animacion1:hover { 
+                    animation: rotateRight 0.8s linear 1;
+                }
+                &.animacion2:hover {
+                    animation: bounce 0.6s ease-in-out 2;
+                }
+            }
+            .boton {
+                display: none;
+            }
+        }
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes rotateRight {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(720deg);
+    }
+}

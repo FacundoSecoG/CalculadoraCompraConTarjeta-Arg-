@@ -9,7 +9,7 @@
     <meta name="description" content="Bienvenido a mi proyecto de javascript de la mano de coderhouse!">
     <meta name="keywords" content="proyecto,programar,html,css,scss,sass,javascript,pyhton,programador,seo">
     <link rel="stylesheet" href="./scss/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
@@ -42,9 +42,18 @@
                         <option value="EUR">$EUR</option>
                     </select>
                     <section class="section-botones">
-                        <button id="guardarConfiguracion" class="boton botonConfiguracion">Guardar Configuracion</button>
-                        <button id="resetearTodo" class="boton botonReset">Resetear</button>
-                        <button id="calcularValor" class="boton botonEnviar">Cacular Valor</button>
+                        <div class="section-boton" id="botonGuardarConfiguracion">
+                            <button id="guardarConfiguracion" class="boton botonConfiguracion">Guardar Configuracion</button>
+                            <i class="fa-solid fa-floppy-disk icono animacion2"></i>
+                        </div>
+                        <div class="section-boton" id="botonResetearTodo">
+                            <button id="resetearTodo" class="boton botonReset">Resetear</button>
+                            <i class="fa-solid fa-rotate-right icono animacion1"></i>
+                        </div>
+                        <div class="section-boton" id="botonCalcularValor">
+                            <button id="calcularValor" class="boton botonEnviar">Cacular Valor</button>
+                            <i class="fa-solid fa-calculator icono animacion2"></i>
+                        </div>
                     </section>
                 </section>
             </div>
