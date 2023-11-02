@@ -96,7 +96,7 @@ provinciaSelect.addEventListener("change", function () {
 
 inputMonto.addEventListener("input", function () {
     montoSinImpuestos = inputMonto.value * divisaObjeto.valor;
-    actualizarTablaTotal(montoSinImpuestos, provinciaObjecto);
+    actualizarTablaTotal(montoSinImpuestos, provinciaObjecto); // Mover esta línea aquí
 });
 
 divisaSelect.addEventListener("change", function () {
@@ -120,6 +120,7 @@ guardarConfiguracionBoton.addEventListener("click", function () {
         confirmButtonText: 'BIEN',
     })
 });
+
 window.addEventListener('load', function () {
     const configuracionGuardada = localStorage.getItem('configuracionUsuario');
     if (configuracionGuardada) {
@@ -136,7 +137,6 @@ window.addEventListener('load', function () {
         actualizarTablaTotal(montoSinImpuestos, provinciaObjecto);
     }
 });
-
 
 resetearTodoBoton.addEventListener("click", resetearTodo);
 
