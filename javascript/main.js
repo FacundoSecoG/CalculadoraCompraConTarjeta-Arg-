@@ -11,17 +11,50 @@ a tener en cuenta:
     + Impuestos provinciales (varían según la provincia)
 */
 
+class Divisa {
+    constructor(tipoDivisa, valor) {
+        this.tipoDivisa = tipoDivisa;
+        this.valor = valor;
+    }
+
+    actualizarValor(valor) {
+        this.valor = valor;
+    }
+}
+
+const divisas = [
+    new Divisa("AR", 1),
+    new Divisa("USD", 1),
+    new Divisa("EUR", 1),
+    new Divisa("BRL", 1)
+];
+
+let dolarHoy;
+let euroHoy;
+let realBrasilenoHoy;
+
+async function obtenerDatos() {
+    const responseDolar = await fetch("https://dolarapi.com/v1/dolares/oficial");
+    const dataDolar = await responseDolar.json();
+    dolarHoy = dataDolar.venta;
+    divisas[1].actualizarValor(dolarHoy);
+
+    const responseEuro = await fetch("https://dolarapi.com/v1/cotizaciones/eur");
+    const dataEuro = await responseEuro.json();
+    euroHoy = dataEuro.venta;
+    divisas[2].actualizarValor(euroHoy);
+
+    const responseReal = await fetch("https://dolarapi.com/v1/cotizaciones/brl");
+    const dataReal = await responseReal.json();
+    realBrasilenoHoy = dataReal.venta;
+    divisas[3].actualizarValor(realBrasilenoHoy);
+}
+obtenerDatos();
+
 class Provincia {
     constructor(nombreProvinciaEnString, impuestosProvinciales) {
         this.nombreProvinciaEnString = nombreProvinciaEnString;
         this.impuestosProvinciales = impuestosProvinciales;
-    }
-}
-
-class Divisa {
-    constructor(tipoDivisa, multiplicador) {
-        this.tipoDivisa = tipoDivisa;
-        this.multiplicador = multiplicador;
     }
 }
 
@@ -35,13 +68,6 @@ const provincias = [
     new Provincia("Salta", 0.036),
     new Provincia("Tierra del Fuego", 0),
     new Provincia("Ninguna de las anteriores", 0)
-];
-
-const divisas = [
-    new Divisa("AR", 1),
-    new Divisa("USD", 367),
-    new Divisa("EUR", 349),
-    new Divisa("BR", 74.9)
 ];
 
 let configuracionUsuario = {
@@ -69,14 +95,14 @@ provinciaSelect.addEventListener("change", function () {
 });
 
 inputMonto.addEventListener("input", function () {
-    montoSinImpuestos = inputMonto.value * divisaObjeto.multiplicador;
+    montoSinImpuestos = inputMonto.value * divisaObjeto.valor;
     actualizarTablaTotal(montoSinImpuestos, provinciaObjecto);
 });
 
 divisaSelect.addEventListener("change", function () {
     divisaSeleccionada = divisaSelect.value;
     divisaObjeto = divisas.find(divisa => divisa.tipoDivisa === divisaSeleccionada);
-    montoSinImpuestos = inputMonto.value * divisaObjeto.multiplicador;
+    montoSinImpuestos = inputMonto.value * divisaObjeto.valor;
     actualizarTablaTotal(montoSinImpuestos, provinciaObjecto);
 });
 
@@ -90,11 +116,10 @@ guardarConfiguracionBoton.addEventListener("click", function () {
         title: 'Genial!',
         text: 'Se guardo correctamente la configuracion.',
         icon: 'success',
-        iconColor:'#00FFFF',
+        iconColor: '#00FFFF',
         confirmButtonText: 'BIEN',
     })
 });
-
 window.addEventListener('load', function () {
     const configuracionGuardada = localStorage.getItem('configuracionUsuario');
     if (configuracionGuardada) {
@@ -103,6 +128,11 @@ window.addEventListener('load', function () {
         divisaSeleccionada = configuracionUsuario.divisa;
         provinciaSelect.value = provinciaSeleccionada;
         divisaSelect.value = divisaSeleccionada;
+
+        provinciaObjecto = provincias.find(provincia => provincia.nombreProvinciaEnString === provinciaSeleccionada);
+        divisaObjeto = divisas.find(divisa => divisa.tipoDivisa === divisaSeleccionada);
+
+        montoSinImpuestos = inputMonto.value * divisaObjeto.valor;
         actualizarTablaTotal(montoSinImpuestos, provinciaObjecto);
     }
 });
@@ -134,13 +164,13 @@ function actualizarTablaTotal(monto, provincia) {
 
     montoSinImpuestosHTML.innerHTML = `Monto de la compra: AR$${monto.toFixed(2)}`;
     montoSoloImpuestosHTML.innerHTML = `Monto de impuestos: AR$${totalImpuestos.toFixed(2)}`;
-    
+
     if (provincia.nombreProvinciaEnString === "Tierra del Fuego") {
         montoIvaHTML.innerHTML = `IVA Servicios Digitales: AR$${(calcularIva(monto, provincia)).toFixed(2)} (0%)`;
     } else {
         montoIvaHTML.innerHTML = `IVA Servicios Digitales: AR$${(calcularIva(monto, provincia)).toFixed(2)} (21%)`;
     }
-    
+
     montoPercepcion4815HTML.innerHTML = `Percepción RG AFIP 4815: AR$${(calcularPercepcion4815(monto)).toFixed(2)} (45%)`;
     montoPercepcion5272HTML.innerHTML = `Percepcion RG AFIP 5272: AR$${(calcularPercepcion5272(monto).toFixed(2))} (25%)`;
     montoImpuestoPaisHTML.innerHTML = `Ley impuesto PAIS: AR$${(calcularImpuestoPais(monto)).toFixed(2)} (8%)`;
@@ -157,7 +187,7 @@ const calcularIva = function (monto, provincia) {
 
 const calcularPercepcion4815 = monto => monto * 0.45;
 
-const calcularPercepcion5272  = monto => monto * 0.25;
+const calcularPercepcion5272 = monto => monto * 0.25;
 
 const calcularImpuestoPais = monto => monto * 0.08;
 
