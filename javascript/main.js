@@ -33,22 +33,64 @@ let dolarHoy;
 let euroHoy;
 let realBrasilenoHoy;
 
+const urlDolar = "https://dolarapi.com/v1/dolares/oficial"
+const urlEuro = "https://dolarapi.com/v1/cotizaciones/eur"
+const urlRealBrasileno = "https://dolarapi.com/v1/cotizaciones/brl"
+
 async function obtenerDatos() {
-    const responseDolar = await fetch("https://dolarapi.com/v1/dolares/oficial");
-    const dataDolar = await responseDolar.json();
-    dolarHoy = dataDolar.venta;
-    divisas[1].actualizarValor(dolarHoy);
+    try {
+        const responseDolar = await fetch(urlDolar);
+        if (!responseDolar.ok) {
+            throw new Error('Error en la solicitud del Dólar');
+        }
+        const dataDolar = await responseDolar.json();
+        dolarHoy = dataDolar.venta;
+        divisas[1].actualizarValor(dolarHoy);
 
-    const responseEuro = await fetch("https://dolarapi.com/v1/cotizaciones/eur");
-    const dataEuro = await responseEuro.json();
-    euroHoy = dataEuro.venta;
-    divisas[2].actualizarValor(euroHoy);
+        const responseEuro = await fetch(urlEuro);
+        if (!responseEuro.ok) {
+            throw Error('Error en la solicitud de Euro');
+        }
+        const dataEuro = await responseEuro.json();
+        euroHoy = dataEuro.venta;
+        divisas[2].actualizarValor(euroHoy);
 
-    const responseReal = await fetch("https://dolarapi.com/v1/cotizaciones/brl");
-    const dataReal = await responseReal.json();
-    realBrasilenoHoy = dataReal.venta;
-    divisas[3].actualizarValor(realBrasilenoHoy);
+        const responseReal = await fetch(urlRealBrasileno);
+        if (!responseReal.ok) {
+            throw new Error('Error en la solicitud de Real Brasileño');
+        }
+        const dataReal = await responseReal.json();
+        realBrasilenoHoy = dataReal.venta;
+        divisas[3].actualizarValor(realBrasilenoHoy);
+    } catch (error) {
+        if (error.message === 'Error en la solicitud de Dólar') {
+            Swal.fire({
+                title: '¡Error en la solicitud del Dólar!',
+                text: 'La API de Dólar se encuentra fuera de servicio o ha ocurrido un error en la solicitud. Los datos del Dólar pueden no ser certeros.',
+                icon: 'error',
+                iconColor: '#00FFFF',
+                confirmButtonText: 'OK',
+            });
+        } else if (error.message === 'Error en la solicitud de Euro') {
+            Swal.fire({
+                title: '¡Error en la solicitud de Euro!',
+                text: 'La API de Euro se encuentra fuera de servicio o ha ocurrido un error en la solicitud. Los datos del Euro pueden no ser certeros.',
+                icon: 'error',
+                iconColor: '#00FFFF',
+                confirmButtonText: 'OK',
+            });
+        } else if (error.message === 'Error en la solicitud de Real Brasileño') {
+            Swal.fire({
+                title: '¡Error en la solicitud de Real Brasileño!',
+                text: 'La API de Real Brasileño se encuentra fuera de servicio o ha ocurrido un error en la solicitud. Los datos del Real Brasileño pueden no ser certeros.',
+                icon: 'error',
+                iconColor: '#00FFFF',
+                confirmButtonText: 'OK',
+            });
+        }
+    }
 }
+
 obtenerDatos();
 
 class Provincia {
