@@ -190,15 +190,15 @@ function resetearTodo() {
 
 function actualizarTablaTotal(monto, provincia) {
     monto = parseFloat(monto);
-    let totalImpuestos = calcularIva(monto, provincia) + calcularPercepcion4815(monto) + calcularImpuestoPais(monto) + calcularImpuestoProvincial(monto, provincia) + calcularPercepcion5272(monto);
+    let totalImpuestos = /* calcularIva(monto, provincia) +*/ calcularPercepcion4815(monto) + calcularImpuestoPais(monto) + calcularImpuestoProvincial(monto, provincia) /* + calcularPercepcion5272(monto) */;
     totalImpuestos = parseFloat(totalImpuestos);
 
     let totalMasImpuestoHTML = document.getElementById("totalMasImpuestos");
     let montoSinImpuestosHTML = document.getElementById("montoSinImpuestos");
     let montoSoloImpuestosHTML = document.getElementById("montoSoloImpuestos");
-    let montoIvaHTML = document.getElementById("montoIVA");
+    /* let montoIvaHTML = document.getElementById("montoIVA"); */
     let montoPercepcion4815HTML = document.getElementById("montoPercepcion4815");
-    let montoPercepcion5272HTML = document.getElementById("montoPercepcion5272")
+    /* let montoPercepcion5272HTML = document.getElementById("montoPercepcion5272"); */
     let montoImpuestoPaisHTML = document.getElementById("montoImpuestoPais");
     let montoProvincialesHTML = document.getElementById("montoProvinciales");
 
@@ -207,31 +207,31 @@ function actualizarTablaTotal(monto, provincia) {
     montoSinImpuestosHTML.innerHTML = `Monto de la compra: AR$${monto.toFixed(2)}`;
     montoSoloImpuestosHTML.innerHTML = `Monto de impuestos: AR$${totalImpuestos.toFixed(2)}`;
 
-    if (provincia.nombreProvinciaEnString === "Tierra del Fuego") {
+    /* if (provincia.nombreProvinciaEnString === "Tierra del Fuego") {
         montoIvaHTML.innerHTML = `IVA Servicios Digitales: AR$${(calcularIva(monto, provincia)).toFixed(2)} (0%)`;
     } else {
         montoIvaHTML.innerHTML = `IVA Servicios Digitales: AR$${(calcularIva(monto, provincia)).toFixed(2)} (21%)`;
-    }
+    } */
 
-    montoPercepcion4815HTML.innerHTML = `Percepción RG AFIP 4815: AR$${(calcularPercepcion4815(monto)).toFixed(2)} (45%)`;
-    montoPercepcion5272HTML.innerHTML = `Percepcion RG AFIP 5272: AR$${(calcularPercepcion5272(monto).toFixed(2))} (25%)`;
-    montoImpuestoPaisHTML.innerHTML = `Ley impuesto PAIS: AR$${(calcularImpuestoPais(monto)).toFixed(2)} (8%)`;
+    montoPercepcion4815HTML.innerHTML = `Percepción RG AFIP 4815: AR$${(calcularPercepcion4815(monto)).toFixed(2)} (30%)`;
+    /* montoPercepcion5272HTML.innerHTML = `Percepcion RG AFIP 5272: AR$${(calcularPercepcion5272(monto).toFixed(2))} (25%)`; */
+    montoImpuestoPaisHTML.innerHTML = `Ley impuesto PAIS: AR$${(calcularImpuestoPais(monto)).toFixed(2)} (30%)`;
     montoProvincialesHTML.innerHTML = `Impuestos provinciales para ${provincia.nombreProvinciaEnString}: AR$${(calcularImpuestoProvincial(monto, provincia)).toFixed(2)} (${(provincia.impuestosProvinciales * 100).toFixed(2)}%)`;
 }
 
-const calcularIva = function (monto, provincia) {
+/* const calcularIva = function (monto, provincia) {
     if (provincia.nombreProvinciaEnString === "Tierra del Fuego") {
         return 0;
     } else {
         return monto * 0.21;
     }
 };
+*/
+const calcularPercepcion4815 = monto => monto * 0.30;
 
-const calcularPercepcion4815 = monto => monto * 0.45;
+/* const calcularPercepcion5272 = monto => monto * 0.25; */
 
-const calcularPercepcion5272 = monto => monto * 0.25;
-
-const calcularImpuestoPais = monto => monto * 0.08;
+const calcularImpuestoPais = monto => monto * 0.30;
 
 const calcularImpuestoProvincial = (monto, provincia) => monto * provincia.impuestosProvinciales;
 
