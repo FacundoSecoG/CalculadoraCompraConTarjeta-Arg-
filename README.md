@@ -1,4 +1,4 @@
-# Calculadora de impuestos (ARG) (ReactJS Vite - Coderhouse top10)
+# Calculadora de impuestos (ARG) (Coderhouse top10)
 
 ![Imagen de proyecto](https://firebasestorage.googleapis.com/v0/b/portafolio-web-49f55.appspot.com/o/miniaturasProyectos%2FproyectoJavascript.png?alt=media&token=17b3c0d2-cb1a-4827-80ed-e7f7920bf1d1)
 
@@ -6,7 +6,7 @@ Este proyecto es un sitio web realizado en React que utiliza JS, Html, Css para 
 
 # Habilidades :computer:
 
-[![Mis Habilidades](https://skillicons.dev/icons?i=react,html,css,js,vite)](https://skillicons.dev)
+[![Mis Habilidades](https://skillicons.dev/icons?i=react,html,css,js)](https://skillicons.dev)
 
 ## :collision: Características 
 
