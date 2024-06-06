@@ -1,6 +1,6 @@
 # Calculadora de impuestos (ARG) (ReactJS Vite - Coderhouse top10)
 
-![Imagen de proyecto]([./public/proyectoCalculadora.png](https://firebasestorage.googleapis.com/v0/b/portafolio-web-49f55.appspot.com/o/miniaturasProyectos%2FproyectoJavascript.png?alt=media&token=17b3c0d2-cb1a-4827-80ed-e7f7920bf1d1))
+![Imagen de proyecto](https://firebasestorage.googleapis.com/v0/b/portafolio-web-49f55.appspot.com/o/miniaturasProyectos%2FproyectoJavascript.png?alt=media&token=17b3c0d2-cb1a-4827-80ed-e7f7920bf1d1)
 
 Este proyecto es un sitio web realizado en React que utiliza JS, Html, Css para mostrar tanto el importe de una compra como sus valores agregados (impuestos).
 
