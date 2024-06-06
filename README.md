@@ -6,7 +6,7 @@ Este proyecto es un sitio web realizado en React que utiliza JS, Html, Css para 
 
 # Habilidades :computer:
 
-[![Mis Habilidades](https://skillicons.dev/icons?i=react,html,css,js,tailwindcss)](https://skillicons.dev)
+[![Mis Habilidades](https://skillicons.dev/icons?i=react,html,css,js,vite)](https://skillicons.dev)
 
 ## :collision: Características 
 
