@@ -26,4 +26,4 @@ Este proyecto es un sitio web realizado en React que utiliza JS, Html, Css para 
 Para usar el sitio web, navega a `http://localhost:5173` en tu navegador.
 
 ## :collision: Web :rocket:
-[![Link a web](https://facundosecog.github.io/CalculadoraCompraConTarjeta-Arg-/)]
+- https://facundosecog.github.io/CalculadoraCompraConTarjeta-Arg-/
